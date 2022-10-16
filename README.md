@@ -1,5 +1,8 @@
 # stock-control
 
+# Prototype
+https://www.figma.com/file/rWt7iyhbgpnpknsp3x8q4V/stock-control?node-id=2%3A7
+
 # Checklist
 
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
