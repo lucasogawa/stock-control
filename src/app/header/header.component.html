@@ -1,6 +1,13 @@
 <nav>
-  <div id="header" class="nav-wrapper">
-    <img width="70" alt="Stock Control Logo" [src]="urlLogo" />
+  <div class="nav-wrapper">
+    <input
+      type="image"
+      id="logo"
+      width="70"
+      alt="Stock Control Logo"
+      [src]="urlLogo"
+      routerLink="/home"
+    />
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <a id="btn" class="btn-small">Quit</a>
     </ul>
