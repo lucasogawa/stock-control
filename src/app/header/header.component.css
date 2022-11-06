@@ -1,24 +1,7 @@
-.spacer {
-  flex: 1;
+nav {
+  background-color: #dbf9fc;
 }
 
-.header {
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 130px;
-  display: flex;
-  position: absolute;
-  align-items: center;
-}
-
-.header img {
+#header img {
   margin: 0 50px;
-}
-
-.header #btn-quit {
-  color: black;
-  width: 100px;
-  margin: 0 50px;
-  background-color: #88b8f9;
 }
