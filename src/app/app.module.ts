@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { AddComponent } from './add/add.component';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent,
+    ListComponent,
     AddComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
