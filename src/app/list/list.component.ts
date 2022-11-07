@@ -20,7 +20,7 @@ export class ListComponent implements OnInit {
     this.modal.text = 'ARE YOU SURE DO YOU WANT TO DELETE THE 100 - PRODUCT 1?';
   }
 
-  onCloseModal() {
+  onCloseModal(confirm: boolean) {
     this.modal.show = false;
   }
 }
