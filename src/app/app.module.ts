@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { ModalComponent } from './modal/modal.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ModalComponent } from './modal/modal.component';
     ListComponent,
     AddComponent,
     ModalComponent,
+    EditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
