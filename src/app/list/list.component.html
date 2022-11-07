@@ -23,9 +23,17 @@
         <td>
           <button id="btn" class="btn-small">STOCK</button>
           <button id="btn" class="btn-small">EDIT</button>
-          <button id="btn" class="btn-small">DELETE</button>
+          <button id="btn" class="btn-small" (click)="this.onOpenModal()">
+            DELETE
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<app-modal
+  [show]="modal.show"
+  [content]="modal"
+  (closeEvent)="onCloseModal()"
+></app-modal>
