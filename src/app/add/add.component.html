@@ -1,14 +1,44 @@
 <div class="container center-align">
-  <form>
+  <form #form="ngForm">
     <div>
-      <label>BRAND</label>
-      <input type="text" />
+      <label>NAME</label>
+      <input
+        name="input-product"
+        type="text"
+        class="validate"
+        [(ngModel)]="this.product.name"
+        #name="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="name.valid || name.untouched">
+        Please fill in the NAME field.
+      </div>
 
-      <label>PRODUCT</label>
-      <input type="text" />
+      <label>BRAND</label>
+      <input
+        name="input-brand"
+        type="text"
+        class="validate"
+        [(ngModel)]="this.product.brand"
+        #brand="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="brand.valid || brand.untouched">
+        Please fill in the BRAND field.
+      </div>
 
       <label>QUANTITY</label>
-      <input type="text" />
+      <input
+        name="input-quantity"
+        type="number"
+        class="validate"
+        [(ngModel)]="this.product.quantity"
+        #quantity="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="quantity.valid || quantity.untouched">
+        Please fill in the QUANTITY field.
+      </div>
 
       <div class="file-field input-field">
         <div id="btn" class="btn">
@@ -21,6 +51,8 @@
       </div>
     </div>
     <button id="btn" class="btn-small">CLEAR</button>
-    <button id="btn" class="btn-small" type="submit">SAVE</button>
+    <button id="btn" class="btn-small" type="submit" [disabled]="!form.valid">
+      SAVE
+    </button>
   </form>
 </div>
