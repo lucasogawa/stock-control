@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { ActivatedRoute } from '@angular/router';
+import { Product } from './../model/product';
+import { ProductService } from './../service/product-service';
 
 @Component({
   selector: 'app-edit',
@@ -8,12 +11,40 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit {
-  idParam: number = 0;
+  @ViewChild('form') form!: NgForm;
 
-  constructor(private route: ActivatedRoute) {}
+  idParam!: number;
+  product!: Product;
+
+  modal = {
+    show: false,
+    text: '',
+  };
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private service: ProductService
+  ) {}
 
   ngOnInit(): void {
     this.idParam = +this.route.snapshot.paramMap.get('id')!;
-    console.log('idParam', this.idParam);
+    this.product = this.service.getById(this.idParam) || new Product('', '', 0);
+  }
+
+  onSubmit() {
+    this.service.update(this.product!);
+    this.form.reset();
+    this.onOpenModal();
+  }
+
+  onOpenModal() {
+    this.modal.show = true;
+    this.modal.text = 'PRODUCT UPDATED!';
+  }
+
+  onCloseModal() {
+    this.modal.show = false;
+    this.router.navigate(['/list']);
   }
 }

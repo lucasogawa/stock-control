@@ -14,12 +14,12 @@ import { Product } from './../model/product';
 export class AddComponent implements OnInit {
   @ViewChild('form') form!: NgForm;
 
+  product!: Product;
   modal = {
     show: false,
     text: '',
   };
 
-  product!: Product;
   constructor(private router: Router, private service: ProductService) {}
 
   ngOnInit(): void {
@@ -29,7 +29,6 @@ export class AddComponent implements OnInit {
   onSubmit() {
     this.service.save(this.product);
     this.form.reset();
-    this.product = new Product('', '', 0);
     this.onOpenModal();
   }
 
