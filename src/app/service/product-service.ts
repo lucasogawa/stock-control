@@ -12,7 +12,7 @@ export class ProductService {
   getById(id: number): Product {
     this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
     for (let product of this.products) {
-      if (product.id !== id) {
+      if (product.id === id) {
         return product;
       }
     }
