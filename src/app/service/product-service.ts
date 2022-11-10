@@ -14,6 +14,16 @@ export class ProductService {
     return this.products;
   }
 
+  delete(id: number): boolean {
+    this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
+    this.products = this.products.filter((product) => {
+      return product.id !== id;
+    });
+
+    WebStorage.set(Constants.PRODUCTS_KEY, this.products);
+    return true;
+  }
+
   save(product: Product) {
     this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
     this.products.push(product);

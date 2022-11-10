@@ -25,7 +25,11 @@
           <button id="btn" class="btn-small" routerLink="/edit/100">
             EDIT
           </button>
-          <button id="btn" class="btn-small" (click)="this.onOpenModal()">
+          <button
+            id="btn"
+            class="btn-small"
+            (click)="this.onOpenModal(product)"
+          >
             DELETE
           </button>
         </td>

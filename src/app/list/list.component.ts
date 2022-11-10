@@ -10,6 +10,7 @@ import { ProductService } from './../service/product-service';
 })
 export class ListComponent implements OnInit {
   products?: Product[];
+  id?: number;
 
   constructor(private service: ProductService) {}
 
@@ -22,12 +23,18 @@ export class ListComponent implements OnInit {
     text: '',
   };
 
-  onOpenModal() {
+  onOpenModal(product: Product) {
+    this.id = product.id;
     this.modal.show = true;
-    this.modal.text = 'ARE YOU SURE DO YOU WANT TO DELETE THE 100 - PRODUCT 1?';
+    this.modal.text = `ARE YOU SURE DO YOU WANT TO DELETE THE ${product.id} - ${product.name}`;
   }
 
   onCloseModal(confirm: boolean) {
+    if (confirm) {
+      this.service.delete(this.id || 0);
+      this.products = this.service.getAll();
+    }
+
     this.modal.show = false;
   }
 }
