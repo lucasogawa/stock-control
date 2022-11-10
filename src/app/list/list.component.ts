@@ -1,4 +1,7 @@
+import { Product } from './../model/product';
 import { Component, OnInit } from '@angular/core';
+
+import { ProductService } from './../service/product-service';
 
 @Component({
   selector: 'app-list',
@@ -6,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  constructor() {}
+  products?: Product[];
 
-  ngOnInit(): void {}
+  constructor(private service: ProductService) {}
+
+  ngOnInit(): void {
+    this.products = this.service.getAll();
+  }
 
   modal = {
     show: false,

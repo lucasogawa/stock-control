@@ -15,11 +15,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>100</td>
-        <td>Brand 1</td>
-        <td>Product 1</td>
-        <td>100</td>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.quantity }}</td>
         <td>
           <button id="btn" class="btn-small">STOCK</button>
           <button id="btn" class="btn-small" routerLink="/edit/100">
