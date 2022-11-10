@@ -1,5 +1,5 @@
 <div class="container center-align">
-  <form #form="ngForm">
+  <form #form="ngForm" (submit)="onSubmit()">
     <div>
       <label>NAME</label>
       <input
@@ -58,3 +58,9 @@
     </button>
   </form>
 </div>
+
+<app-modal
+  [show]="modal.show"
+  [content]="modal"
+  (closeEvent)="onCloseModal()"
+></app-modal>
