@@ -26,6 +26,10 @@ export class AddComponent implements OnInit {
     this.product = new Product('', '', 0);
   }
 
+  reset() {
+    this.form.reset();
+  }
+
   onSubmit() {
     this.service.save(this.product);
     this.form.reset();

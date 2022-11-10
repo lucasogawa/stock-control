@@ -52,7 +52,9 @@
         </div>
       </div>
     </div>
-    <button id="btn" class="btn-small">CLEAR</button>
+    <button id="btn" class="btn-small" type="button" (click)="reset()">
+      CLEAR
+    </button>
     <button id="btn" class="btn-small" type="submit" [disabled]="!form.valid">
       SAVE
     </button>

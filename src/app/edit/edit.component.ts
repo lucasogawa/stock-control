@@ -32,6 +32,10 @@ export class EditComponent implements OnInit {
     this.product = this.service.getById(this.idParam) || new Product('', '', 0);
   }
 
+  reset() {
+    this.form.reset();
+  }
+
   onSubmit() {
     this.service.update(this.product!);
     this.form.reset();
