@@ -15,7 +15,11 @@ export class ListComponent implements OnInit {
   constructor(private service: ProductService) {}
 
   ngOnInit(): void {
-    this.products = this.service.getAll();
+    this.getAll();
+  }
+
+  getAll(): void {
+    this.service.getAll().then((products) => (this.products = products));
   }
 
   modal = {
@@ -31,8 +35,7 @@ export class ListComponent implements OnInit {
 
   onCloseModal(confirm: boolean) {
     if (confirm) {
-      this.service.delete(this.id || 0);
-      this.products = this.service.getAll();
+      this.service.delete(this.id || 0).then(() => this.getAll());
     }
 
     this.modal.show = false;

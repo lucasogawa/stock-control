@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Constants } from 'src/app/util/constants';
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
@@ -7,42 +8,39 @@ import { WebStorage } from 'src/app/util/web-storage';
 export class ProductService {
   products: Product[] = [];
 
-  constructor() {}
+  URL = 'http://localhost:3000/products';
 
-  getById(id: number): Product {
-    this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
-    for (let product of this.products) {
-      if (product.id === id) {
-        return product;
-      }
-    }
-    return new Product('', '', -1);
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  constructor(private httpClient: HttpClient) {}
+
+  getById(id: number): Promise<Product | undefined> {
+    return this.httpClient.get<Product>(`${this.URL}/${id}`).toPromise();
   }
 
-  getAll(): Product[] {
-    this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
-    return this.products;
+  getAll(): Promise<Product[] | undefined> {
+    return this.httpClient.get<Product[]>(this.URL).toPromise();
   }
 
-  delete(id: number): boolean {
-    this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
-    this.products = this.products.filter((product) => {
-      return product.id !== id;
-    });
-
-    WebStorage.set(Constants.PRODUCTS_KEY, this.products);
-    return true;
+  delete(id: number): Promise<Product | undefined> {
+    return this.httpClient.delete<Product>(`${this.URL}/${id}`).toPromise();
   }
 
-  save(product: Product) {
-    this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
-    this.products.push(product);
-    WebStorage.set(Constants.PRODUCTS_KEY, this.products);
+  save(product: Product): Promise<Product | undefined> {
+    return this.httpClient
+      .post<Product>(this.URL, JSON.stringify(product), this.httpOptions)
+      .toPromise();
   }
 
-  update(product: Product) {
-    this.products = WebStorage.get(Constants.PRODUCTS_KEY) || [];
-    this.delete(product.id);
-    this.save(product);
+  update(product: Product): Promise<Product | undefined> {
+    return this.httpClient
+      .put<Product>(
+        `${this.URL}/${product.id}`,
+        JSON.stringify(product),
+        this.httpOptions
+      )
+      .toPromise();
   }
 }

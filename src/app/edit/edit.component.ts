@@ -29,7 +29,9 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.idParam = +this.route.snapshot.paramMap.get('id')!;
-    this.product = this.service.getById(this.idParam) || new Product('', '', 0);
+    this.service
+      .getById(this.idParam)
+      .then((product) => (this.product = product || new Product('', '', 0)));
   }
 
   reset() {
@@ -37,9 +39,10 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.update(this.product!);
-    this.form.reset();
-    this.onOpenModal();
+    this.service.update(this.product!).then(() => {
+      this.form.reset();
+      this.onOpenModal();
+    });
   }
 
   onOpenModal() {
