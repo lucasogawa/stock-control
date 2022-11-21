@@ -34,6 +34,6 @@ export class UserService {
   }
 
   isLogged(): boolean {
-    return WebStorage.get(Constants.USER_KEY);
+    return !!WebStorage.get(Constants.USER_KEY);
   }
 }
