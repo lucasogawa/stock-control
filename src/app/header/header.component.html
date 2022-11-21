@@ -8,8 +8,12 @@
       [src]="urlLogo"
       routerLink="/list"
     />
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <a id="btn" class="btn-small">Quit</a>
+    <ul
+      id="nav-mobile"
+      class="right hide-on-med-and-down"
+      *ngIf="isNotLoggedUser"
+    >
+      <a id="btn" class="btn-small" type="submit" (click)="logout()">Quit</a>
     </ul>
   </div>
 </nav>

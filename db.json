@@ -18,5 +18,13 @@
       "brand": "Brand 3",
       "quantity": 3
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Lucas Akio Ogawa",
+      "username": "admin",
+      "password": "admin"
+    }
   ]
 }

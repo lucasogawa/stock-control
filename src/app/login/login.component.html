@@ -1,13 +1,29 @@
 <div class="container center-align">
-  <form>
+  <form #form="ngForm" (submit)="onSubmit()">
     <div>
       <label>USERNAME</label>
-      <input type="text" />
+      <input
+        name="input-username"
+        type="text"
+        [(ngModel)]="this.user.username"
+        #name="ngModel"
+        required
+      />
 
       <label>PASSWORD</label>
-      <input type="password" />
+      <input
+        name="input-password"
+        type="password"
+        [(ngModel)]="this.user.password"
+        #name="ngModel"
+        required
+      />
     </div>
-    <button id="btn" class="btn-small">CLEAR</button>
-    <button id="btn" class="btn-small" type="submit">LOGIN</button>
+    <button id="btn" class="btn-small" type="button" (click)="reset()">
+      CLEAR
+    </button>
+    <button id="btn" class="btn-small" type="submit" [disabled]="!form.valid">
+      LOGIN
+    </button>
   </form>
 </div>

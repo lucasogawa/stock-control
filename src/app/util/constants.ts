@@ -1,3 +1,3 @@
 export class Constants {
-  public static readonly PRODUCTS_KEY = 'products';
+  public static readonly USER_KEY = 'users';
 }
