@@ -17,8 +17,8 @@
     <tbody>
       <tr *ngFor="let product of products">
         <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.brand }}</td>
+        <td>{{ product.name | uppercase }}</td>
+        <td>{{ product.brand | uppercase }}</td>
         <td>{{ product.quantity }}</td>
         <td>
           <button id="btn" class="btn-small">STOCK</button>
