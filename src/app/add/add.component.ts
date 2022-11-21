@@ -31,7 +31,7 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.product).then(() => {
+    this.service.save(this.product).subscribe(() => {
       this.form.reset();
       this.onOpenModal();
     });

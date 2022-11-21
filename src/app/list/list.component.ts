@@ -19,7 +19,9 @@ export class ListComponent implements OnInit {
   }
 
   getAll(): void {
-    this.service.getAll().then((products) => (this.products = products));
+    this.service.getAll().subscribe((data: Product[]) => {
+      this.products = data;
+    });
   }
 
   modal = {
@@ -35,7 +37,9 @@ export class ListComponent implements OnInit {
 
   onCloseModal(confirm: boolean) {
     if (confirm) {
-      this.service.delete(this.id || 0).then(() => this.getAll());
+      this.service.delete(this.id || 0).subscribe(() => {
+        this.getAll();
+      });
     }
 
     this.modal.show = false;
