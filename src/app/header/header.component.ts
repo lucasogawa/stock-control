@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   isNotLoggedUser: boolean;
 
   constructor(private router: Router, private userService: UserService) {
-    this.urlLogo = '../assets/logo.png';
+    this.urlLogo = 'assets/logo.png';
     this.isNotLoggedUser = !!userService.isLogged();
   }
 
