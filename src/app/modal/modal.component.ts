@@ -32,7 +32,7 @@ export class ModalComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.content?.show) {
+    if (this.show) {
       M.Modal.init(this.modal?.nativeElement, {})?.open();
     }
   }
