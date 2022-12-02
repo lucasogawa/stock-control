@@ -44,4 +44,24 @@ export class ListComponent implements OnInit {
 
     this.modal.show = false;
   }
+
+  stock = {
+    show: false,
+    product: new Product('', '', 0),
+  };
+
+  onOpenStock(product: Product) {
+    this.stock.show = true;
+    this.stock.product = product;
+  }
+
+  onCloseStock(product: Product) {
+    if (product) {
+      this.service.update(product).subscribe(() => {
+        this.getAll();
+      });
+    }
+
+    this.stock.show = false;
+  }
 }

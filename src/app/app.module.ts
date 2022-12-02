@@ -12,6 +12,7 @@ import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { ModalComponent } from './modal/modal.component';
 import { EditComponent } from './edit/edit.component';
+import { StockComponent } from './stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { EditComponent } from './edit/edit.component';
     AddComponent,
     ModalComponent,
     EditComponent,
+    StockComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

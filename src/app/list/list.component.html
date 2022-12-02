@@ -21,7 +21,13 @@
         <td>{{ product.brand | uppercase }}</td>
         <td>{{ product.quantity }}</td>
         <td>
-          <button id="btn" class="btn-small">STOCK</button>
+          <button
+            id="btn"
+            class="btn-small"
+            (click)="this.onOpenStock(product)"
+          >
+            STOCK
+          </button>
           <button
             id="btn"
             class="btn-small"
@@ -47,3 +53,9 @@
   [content]="modal"
   (closeEvent)="onCloseModal($event)"
 ></app-modal>
+
+<app-stock
+  [show]="stock.show"
+  [content]="stock"
+  (closeEvent)="onCloseStock($event)"
+></app-stock>

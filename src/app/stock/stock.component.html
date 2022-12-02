@@ -1,0 +1,40 @@
+<div class="modal" #stock>
+  <form #form="ngForm" (submit)="onSubmit()">
+    <div class="modal-content">
+      <label>CODE:</label>
+      <p>{{ content.product.id }}</p>
+
+      <label>NAME:</label>
+      <p>{{ content.product.name | uppercase }}</p>
+
+      <label>BRAND:</label>
+      <p>{{ content.product.brand | uppercase }}</p>
+
+      <label>QUANTITY</label>
+      <input
+        name="input-quantity"
+        type="number"
+        class="validate"
+        [(ngModel)]="this.content.product.quantity"
+        #quantity="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="quantity.valid || quantity.untouched">
+        Please fill in the QUANTITY field only with numbers.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btn" class="modal-close btn-flat" (click)="onClose()">
+        CANCEL
+      </button>
+      <button
+        id="btn"
+        class="modal-close btn-flat"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        UPDATE
+      </button>
+    </div>
+  </form>
+</div>
