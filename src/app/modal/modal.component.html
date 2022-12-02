@@ -1,0 +1,13 @@
+<div class="modal" #modal1>
+  <div class="modal-content">
+    <p>{{ content?.text }}</p>
+  </div>
+  <div class="modal-footer">
+    <button id="btn" class="modal-close btn-flat" (click)="onClose(false)">
+      CANCEL
+    </button>
+    <button id="btn" class="modal-close btn-flat" (click)="onClose(true)">
+      CONFIRM
+    </button>
+  </div>
+</div>

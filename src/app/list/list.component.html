@@ -1,0 +1,61 @@
+<div class="container center-align">
+  <br />
+  <button id="btn" class="btn-small" routerLink="/add">ADD</button>
+</div>
+
+<div class="container">
+  <table class="centered">
+    <thead>
+      <tr>
+        <th>CODE</th>
+        <th>BRAND</th>
+        <th>PRODUCT</th>
+        <th>QUANTITY</th>
+        <th>OPTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name | uppercase }}</td>
+        <td>{{ product.brand | uppercase }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          <button
+            id="btn"
+            class="btn-small"
+            (click)="this.onOpenStock(product)"
+          >
+            STOCK
+          </button>
+          <button
+            id="btn"
+            class="btn-small"
+            routerLink="/edit/{{ product.id }}"
+          >
+            EDIT
+          </button>
+          <button
+            id="btn"
+            class="btn-small"
+            (click)="this.onOpenModal(product)"
+          >
+            DELETE
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-modal
+  [show]="modal.show"
+  [content]="modal"
+  (closeEvent)="onCloseModal($event)"
+></app-modal>
+
+<app-stock
+  [show]="stock.show"
+  [content]="stock"
+  (closeEvent)="onCloseStock($event)"
+></app-stock>

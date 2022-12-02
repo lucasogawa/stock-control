@@ -1,0 +1,13 @@
+@import "~materialize-css/dist/css/materialize.css";
+@import "~material-icons/iconfont/material-icons.css";
+
+body {
+  background-color: #dbf9fc;
+}
+
+#btn {
+  color: black;
+  width: 100px;
+  margin: 0 5px;
+  background-color: #88b8f9;
+}

@@ -1,0 +1,19 @@
+<nav>
+  <div class="nav-wrapper">
+    <input
+      type="image"
+      id="logo"
+      width="70"
+      alt="Stock Control Logo"
+      [src]="urlLogo"
+      routerLink="/list"
+    />
+    <ul
+      id="nav-mobile"
+      class="right hide-on-med-and-down"
+      *ngIf="isNotLoggedUser"
+    >
+      <a id="btn" class="btn-small" type="submit" (click)="logout()">Quit</a>
+    </ul>
+  </div>
+</nav>

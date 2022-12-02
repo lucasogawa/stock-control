@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "brand": "Brand 1",
+      "quantity": 1
+    },
+    {
+      "id": "2",
+      "name": "Product 2",
+      "brand": "Brand 2",
+      "quantity": 2
+    },
+    {
+      "id": "3",
+      "name": "Product 3",
+      "brand": "Brand 3",
+      "quantity": 3
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Lucas Akio Ogawa",
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}

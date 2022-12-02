@@ -1,0 +1,33 @@
+<div class="container center-align">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <div>
+      <label>USERNAME</label>
+      <input
+        name="input-username"
+        type="text"
+        class="validate"
+        [(ngModel)]="this.user.username"
+        #name="ngModel"
+        value="{{ this.user.username }}"
+        required
+      />
+
+      <label>PASSWORD</label>
+      <input
+        name="input-password"
+        type="password"
+        class="validate"
+        [(ngModel)]="this.user.password"
+        #name="ngModel"
+        value="{{ this.user.password }}"
+        required
+      />
+    </div>
+    <button id="btn" class="btn-small" type="button" (click)="reset()">
+      CLEAR
+    </button>
+    <button id="btn" class="btn-small" type="submit" [disabled]="!form.valid">
+      LOGIN
+    </button>
+  </form>
+</div>

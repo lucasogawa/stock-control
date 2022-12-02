@@ -1,0 +1,71 @@
+<div class="container center-align">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <div>
+      <label>NAME</label>
+      <input
+        value="{{ this.product.name }}"
+        name="input-product"
+        type="text"
+        class="validate"
+        [(ngModel)]="this.product.name"
+        pattern="([A-ZÀ-Ú-a-zà-ú0-9 ])*"
+        #name="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="name.valid || name.untouched">
+        Please fill in the NAME field only with letters and numbers.
+      </div>
+
+      <label>BRAND</label>
+      <input
+        value="{{ this.product.brand }}"
+        name="input-brand"
+        type="text"
+        class="validate"
+        [(ngModel)]="this.product.brand"
+        pattern="([A-ZÀ-Ú-a-zà-ú0-9 ])*"
+        #brand="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="brand.valid || brand.untouched">
+        Please fill in the BRAND field only with letters and numbers.
+      </div>
+
+      <label>QUANTITY</label>
+      <input
+        value="{{ this.product.quantity }}"
+        name="input-quantity"
+        type="number"
+        class="validate"
+        [(ngModel)]="this.product.quantity"
+        #quantity="ngModel"
+        required
+      />
+      <div class="red-text" [hidden]="quantity.valid || quantity.untouched">
+        Please fill in the QUANTITY field only with numbers.
+      </div>
+
+      <div class="file-field input-field">
+        <div id="btn" class="btn">
+          <span>File</span>
+          <input type="file" />
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" />
+        </div>
+      </div>
+    </div>
+    <button id="btn" class="btn-small" type="button" (click)="reset()">
+      CLEAR
+    </button>
+    <button id="btn" class="btn-small" type="submit" [disabled]="!form.valid">
+      SAVE
+    </button>
+  </form>
+</div>
+
+<app-modal
+  [show]="modal.show"
+  [content]="modal"
+  (closeEvent)="onCloseModal()"
+></app-modal>
