@@ -8,6 +8,7 @@
         class="validate"
         [(ngModel)]="this.user.username"
         #name="ngModel"
+        value="{{ this.user.username }}"
         required
       />
 
@@ -18,6 +19,7 @@
         class="validate"
         [(ngModel)]="this.user.password"
         #name="ngModel"
+        value="{{ this.user.password }}"
         required
       />
     </div>
